@@ -6,11 +6,11 @@
           v-for="vendor in vendors" 
           :key="vendor.id" 
           class="bg-white p-4 rounded shadow transition hover:shadow-lg cursor-pointer"
-          @click="goToVendorDashboard(vendor.id)"
+          @click="goToAllProducts(vendor.id)"
         >
-        <img src="/assets/images/burger.jpg" alt="Vendor Image" class="w-full h-32 object-cover rounded mb-2" />
+          <img src="/assets/images/burger.jpg" alt="Vendor Image" class="w-full h-32 object-cover rounded mb-2" />
           <h2 class="font-bold">{{ vendor.name }}</h2>
-          <p class="text-gray-600"> {{ vendor.description }}</p>
+          <p class="text-gray-600">{{ vendor.description }}</p>
         </div>
       </div>
     </div>
@@ -20,17 +20,19 @@
   import { onMounted, ref } from 'vue'
   import { useRouter } from 'vue-router'
   
-  // Sample vendor data (you might want to replace this with a real API call)
-  const vendors = ref([
-    { id: 1, name: 'Vendor One', username: 'vendor1', description: 'Beverages' },
-    { id: 2, name: 'Vendor Two', username: 'vendor2', description: 'Food' },
-    { id: 3, name: 'Vendor Three', username: 'vendor3', description: 'Ice Cream' }
-  ])
+  const vendors = ref([])
   
   const router = useRouter()
   
-  // Method to redirect to vendor dashboard
-  const goToVendorDashboard = (vendorId) => {
+  onMounted(() => {
+    // Check if running on the client side
+    if (process.client) {
+      const storedVendors = localStorage.getItem('vendors')
+      vendors.value = storedVendors ? JSON.parse(storedVendors) : []
+    }
+  })
+  
+  const goToAllProducts = (vendorId) => {
     router.push(`/vendor/${vendorId}/all-products`)
   }
   </script>
