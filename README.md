@@ -2,6 +2,9 @@
 ## Important Links
 ```bash
 /vendor/login - access vendor login page
+# Credentials
+   username: vendor1
+   password: vendor1
 /marketplace - access marketplace
 ```
 
