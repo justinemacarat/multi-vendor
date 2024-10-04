@@ -34,20 +34,20 @@
   </template>
   
   <script setup>
-  import { ref, onMounted } from 'vue'
-  
-  const products = ref([])
-  
-  onMounted(() => {
-    // Ensure this runs only on the client side
-    if (process.client) {
-      products.value = JSON.parse(localStorage.getItem('products')) || []
+    import { ref, onMounted } from 'vue'
+    
+    const products = ref([])
+    
+    onMounted(() => {
+        // Ensure this runs only on the client side
+        if (process.client) {
+        products.value = JSON.parse(localStorage.getItem('products')) || []
+        }
+    })
+    
+    // Function to handle ordering a product
+    const orderProduct = (productName) => {
+        alert(`${productName} has been ordered!`)
     }
-  })
-  
-  // Function to handle ordering a product
-  const orderProduct = (productName) => {
-    alert(`${productName} has been ordered!`)
-  }
   </script>
   

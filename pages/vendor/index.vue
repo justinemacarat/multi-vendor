@@ -42,38 +42,39 @@
   </template>
   
   <script setup>
-  import { ref, onMounted } from 'vue'
-  import { useRouter } from 'vue-router'
+    import { ref, onMounted } from 'vue'
+    import { useRouter } from 'vue-router'
+    
+    const products = ref([])
+    const router = useRouter()
+    
+    // Load products from local storage when the component mounts
+    onMounted(() => {
+        const existingProducts = JSON.parse(localStorage.getItem('products')) || []
+        products.value = existingProducts
+    })
   
-  const products = ref([])
-  const router = useRouter()
+    // Function to handle editing a product
+    const editProduct = (index) => {
+        router.push({ path: '/vendor/add-product', query: { id: index } })
+    }
+    
+    // Function to handle deleting a product
+    const deleteProduct = (index) => {
+        products.value.splice(index, 1)
+        localStorage.setItem('products', JSON.stringify(products.value))
+    }
   
-  // Load products from local storage when the component mounts
-  onMounted(() => {
-    const existingProducts = JSON.parse(localStorage.getItem('products')) || []
-    products.value = existingProducts
-  })
-  
-  // Function to handle editing a product
-  const editProduct = (index) => {
-    router.push({ path: '/vendor/add-product', query: { id: index } })
-  }
-  
-  // Function to handle deleting a product
-  const deleteProduct = (index) => {
-    products.value.splice(index, 1)
-    localStorage.setItem('products', JSON.stringify(products.value))
-  }
   </script>
   
   <style scoped>
-  .edit-button,
-  .delete-button {
-    padding: 8px 12px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+    .edit-button,
+    .delete-button {
+        padding: 8px 12px;
+        margin-right: 5px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
   </style>
   
