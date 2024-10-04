@@ -1,8 +1,8 @@
 # Multi-vendor Website
 ## Important Links
 ```bash
-/vendor - access vendor page
-/customer - access customer page
+/vendor/login - access vendor login page
+/marketplace - access marketplace
 ```
 
 # Nuxt 3 Minimal Starter
