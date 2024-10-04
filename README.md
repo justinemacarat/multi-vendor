@@ -4,7 +4,14 @@
 /vendor/login - access vendor login page
 # Credentials
    username: vendor1
-   password: vendor1
+   password: password1
+
+   username: vendor2
+   password: password2
+
+   username: vendor3
+   password: password3
+
 /marketplace - access marketplace
 ```
 
