@@ -1,3 +1,7 @@
+# Multi-vendor Website
+/vendor - access vendor page
+/customer - access customer page
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
