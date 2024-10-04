@@ -1,3 +1,20 @@
+# Multi-vendor Website
+## Important Links
+```bash
+/vendor/login - access vendor login page
+# Credentials
+   username: vendor1
+   password: password1
+
+   username: vendor2
+   password: password2
+
+   username: vendor3
+   password: password3
+
+/marketplace - access marketplace
+```
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
